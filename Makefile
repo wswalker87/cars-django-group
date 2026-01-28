@@ -2,7 +2,7 @@
 reset:
 	docker-compose down -v
 	docker build --no-cache .
-# 	docker-compose up -d --build --no-cache 
+	docker-compose up -d --build
 # 	docker-compose up -d --build --no-cache 
 # 	docker-compose logs -f
 
