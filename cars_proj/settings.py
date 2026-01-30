@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&_4t!a+ag#$)eltoc=h!=6@4(m86l5fr(vaasr=6&r^iirk%5g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0"]
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'car_app',
 ]
 
 MIDDLEWARE = [
@@ -72,13 +73,17 @@ WSGI_APPLICATION = 'cars_proj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "car_db",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "db",  
+        "PORT": 5432, # This is the port on the host machine (which will be mapped to 5432 in the container)
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
